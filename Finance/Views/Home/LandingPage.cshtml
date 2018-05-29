@@ -1,0 +1,100 @@
+﻿@*@using Finance.Models;
+@model DashboardViewModel
+using Finance.Models.HelperClass
+@using Microsoft.AspNet.Identity*@
+
+@{
+    ViewBag.Title = "LandingPage";
+}
+
+<h2>Welcome to the portal LandingPage</h2>
+
+<div>
+    @Html.ActionLink("Go to Dashboard", "Index", "Home")
+</div>
+
+@*<p>Recent Transactions</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive" style="padding-bottom:70px">
+            <table id="transview" class="table table-striped">
+
+                <thead>
+                    <tr bgcolor="#ADD8E6">
+                        <th>
+                            Date
+                        </th>
+                        Account Name
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Amount
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var transaction in Model.Transactions)
+                    {
+                        <tr>
+                            <td>
+                                @transaction.Date.ToString("MMM dd yyyy")
+                            </td>
+
+                            <td>
+
+                                @Model. personalAccount.Name
+                            </td>
+                            <td>
+                                @transaction.Description
+                            </td>
+
+
+                            <td>
+                                @transaction.Amount
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<p>Accounts/Balances</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive" style="padding-bottom:70px">
+            <table id="accview" class="table table-striped">
+
+                <thead>
+                    <tr bgcolor="#ADD8E6">
+                        <th>
+                            Account Name
+                        </th>
+                        Account Balance
+                        <th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var accounts in Model.PersonalAccounts)
+                    {
+                        <tr>
+                            <td>
+                                @Model. personalAccount.Name
+                            </td>
+                            <td>
+                                @Model.Balances
+                            </td>
+                            <td>
+                                @Model.ReconciledBalances
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>*@

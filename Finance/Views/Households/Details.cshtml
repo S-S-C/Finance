@@ -1,0 +1,114 @@
+﻿@model Finance.Models.Household
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Household</h4>
+    @*<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>*@
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Members)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Members)
+            </dd>*@
+        @*<dt>
+                @Html.DisplayNameFor(model => model.User.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>*@
+
+
+    </dl>
+</div>
+
+<div class="col-md-6">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <h4 class="m-b-30 m-t-0">Members Table</h4>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                               
+                                <th> Name</th>
+                                <th>Email</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var usr in Model.Members)
+                            {
+
+                                <tr>
+                                    <td>@usr.FirstName @usr.LastName</td>
+                                    <td>@usr.Email</td>
+
+                                </tr>
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<p>
+    @foreach (var usr in Model.Members)
+    {
+        <ul>
+            <li>
+                @usr.FirstName @usr.LastName   |   @usr.Email
+            </li>
+        </ul>
+    }
+</p>*@
+<div class="row">
+    <p>Invite</p>
+    <p>Invite another person to join your household</p>
+
+    @using (Html.BeginForm("Invite", "Households", FormMethod.Post))
+    {
+        <input type="text" value="Email" name="email" />
+        <input type="submit" class="btn btn-info" />
+    }
+</div>
+</br>
+</br>
+<div class="row">
+    <p>Leave</p>
+    <p>Leave your current household and start a new one</p>
+    <p>I understand that I will no longer have access to my current household's accounts</p>
+
+    @using (Html.BeginForm("LeaveHousehold", "Households", FormMethod.Post))
+    {
+        @*<input type="text" name="email" />*@
+        <input type="submit" value="Leave this household" class="btn btn-info" />
+    }
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
